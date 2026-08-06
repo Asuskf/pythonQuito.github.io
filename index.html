@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python UIO | Where Talent Meets Opportunity</title>
+    <meta name="description" content="Python UIO es la comunidad de Quito que conecta talento Python con oportunidades: charlas técnicas, workshops, networking y ofertas laborales. Únete gratis.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Python UIO | Where Talent Meets Opportunity">
+    <meta property="og:description" content="La comunidad Python de Quito: charlas técnicas, workshops, networking y oportunidades laborales. Únete gratis.">
+    <meta property="og:image" content="assets/files/img/sponsor/logo_principal_blanco.svg">
+    <meta name="theme-color" content="#0A0E14">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%90%8D</text></svg>">
+    <!-- Ruta a los estilos -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Fuentes: Fira Code para el toque geek, Inter para legibilidad formal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Capas de ambiente: orbes de color + rejilla + grano -->
+    <div class="ambient" aria-hidden="true">
+        <div class="orb orb-blue"></div>
+        <div class="orb orb-yellow"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <a href="#hero" class="brand">
+            <span class="brand-mark">🐍</span>
+            <span class="brand-text">python<span class="brand-accent">_</span>uio</span>
+        </a>
+        <nav class="site-nav" aria-label="Navegación principal">
+            <a href="#about">Comunidad</a>
+            <a href="#what-we-do">Qué hacemos</a>
+            <a href="#speakers">Postula tu charla</a>
+            <a href="#sponsors">Partners</a>
+        </nav>
+        <a href="https://t.me/pythonUIO" target="_blank" rel="noopener" class="btn btn-primary btn-sm header-cta">Únete</a>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section id="hero" class="hero">
+            <div class="container hero-inner reveal">
+                <span class="badge"><span class="badge-dot"></span> Comunidad Python de Quito, Ecuador</span>
+
+                <h1 class="hero-title">
+                    Where Python talent<br>meets <span class="gradient-text">opportunity</span>
+                </h1>
+
+                <p class="hero-sub">
+                    La comunidad que conecta a quienes construyen con Python en IA, datos, backend y cloud
+                    con las oportunidades que hacen crecer su carrera.
+                </p>
+
+                <div class="terminal">
+                    <div class="terminal-bar">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <span class="terminal-title">python_uio — zsh</span>
+                    </div>
+                    <div class="terminal-body">
+                        <span class="prompt">~ $</span> <span id="typewriter"></span><span class="cursor">▋</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="https://t.me/pythonUIO" target="_blank" rel="noopener" class="btn btn-primary">
+                        Únete a la comunidad <span class="arrow">→</span>
+                    </a>
+                    <a href="#speakers" class="btn btn-ghost">Postula tu charla</a>
+                </div>
+
+                <ul class="hero-meta">
+                    <li>Charlas técnicas</li>
+                    <li>Workshops</li>
+                    <li>Networking</li>
+                    <li>Ofertas laborales</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Quiénes somos -->
+        <section id="about" class="section">
+            <div class="container text-center">
+                <div class="section-head reveal">
+                    <p class="eyebrow">// quiénes somos</p>
+                    <h2 class="section-title">Una comunidad de <span class="gradient-text">builders</span>,<br>no de espectadores</h2>
+                    <p class="lead lead-center">
+                        Reunimos a profesionales, especialistas y líderes tecnológicos que usan Python para construir
+                        soluciones reales en inteligencia artificial, ciencia de datos, desarrollo de software,
+                        automatización y cloud.
+                    </p>
+                </div>
+
+                <div class="code-card code-card-center reveal">
+                    <div class="terminal-bar">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <span class="terminal-title">comunidad.py</span>
+                    </div>
+                    <pre class="code-body"><code><span class="c-kw">class</span> <span class="c-cls">PythonUIO</span>(<span class="c-cls">Comunidad</span>):
+    ciudad <span class="c-op">=</span> <span class="c-str">"Quito, Ecuador"</span>
+    stack  <span class="c-op">=</span> [<span class="c-str">"IA"</span>, <span class="c-str">"Data"</span>, <span class="c-str">"Backend"</span>, <span class="c-str">"Cloud"</span>]
+
+    <span class="c-kw">def</span> <span class="c-fn">conectar</span>(<span class="c-self">self</span>, talento, industria):
+        <span class="c-cmt"># donde el talento encuentra su lugar</span>
+        <span class="c-kw">return</span> <span class="c-cls">Oportunidad</span>(talento, industria)</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qué hacemos -->
+        <section id="what-we-do" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="eyebrow">// qué hacemos</p>
+                    <h2 class="section-title">Todo lo que pasa cuando la comunidad se junta</h2>
+                </div>
+
+                <div class="cards">
+                    <article class="card reveal">
+                        <span class="card-icon">🚀</span>
+                        <h3>Charlas &amp; workshops</h3>
+                        <p>Charlas técnicas, talleres prácticos y sesiones de live coding con gente que ya lo construyó.</p>
+                    </article>
+                    <article class="card reveal">
+                        <span class="card-icon">💡</span>
+                        <h3>Conocimiento abierto</h3>
+                        <p>Experiencias, buenas prácticas y casos de uso reales de proyectos que corren en producción.</p>
+                    </article>
+                    <article class="card reveal">
+                        <span class="card-icon">🤝</span>
+                        <h3>Networking real</h3>
+                        <p>Conectamos profesionales, empresas y reclutadores con talento especializado en Python.</p>
+                    </article>
+                    <article class="card reveal">
+                        <span class="card-icon">🌎</span>
+                        <h3>Open source</h3>
+                        <p>Impulsamos la colaboración y la participación en proyectos de código abierto de la región.</p>
+                    </article>
+                    <article class="card reveal">
+                        <span class="card-icon">📈</span>
+                        <h3>Crecimiento profesional</h3>
+                        <p>Promovemos el desarrollo de carrera y la adopción de tecnologías basadas en Python.</p>
+                    </article>
+                    <article class="card card-cta reveal">
+                        <h3>¿Te sumas?</h3>
+                        <p>Entrar es gratis y toma menos de un minuto.</p>
+                        <a href="https://t.me/pythonUIO" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                            Unirme ahora <span class="arrow">→</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Postula tu charla -->
+        <section id="speakers" class="section">
+            <div class="container">
+                <div class="panel speaker-panel reveal">
+                    <div class="panel-content">
+                        <p class="eyebrow">// call for speakers</p>
+                        <h2 class="section-title">El escenario de la comunidad <span class="gradient-text">es tuyo</span></h2>
+                        <p class="lead">
+                            No importa si es un proyecto de Machine Learning avanzado, una automatización que te ahorró
+                            horas o tus primeros pasos construyendo APIs. Si lo construiste, vale la pena contarlo.
+                        </p>
+                        <ul class="check-list">
+                            <li>Cualquier nivel de experiencia</li>
+                            <li>Formato charla, lightning talk o workshop</li>
+                            <li>Te ayudamos a preparar la propuesta</li>
+                        </ul>
+                        <a href="https://forms.gle/XaKXWGxTpWt2G3pf8" target="_blank" rel="noopener" class="btn btn-primary">
+                            Enviar mi propuesta <span class="arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="panel-aside">
+                        <div class="qr-card">
+                            <img src="assets/files/img/QR propuesta.svg" alt="Código QR para enviar una propuesta de charla" class="qr-img">
+                            <p class="qr-label">Escanea para postular</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners -->
+        <section id="sponsors" class="section">
+            <div class="container text-center">
+                <div class="section-head reveal">
+                    <p class="eyebrow">// partners</p>
+                    <h2 class="section-title">Empresas que impulsan el <span class="gradient-text">talento</span></h2>
+                    <p class="lead lead-center">
+                        Nuestros partners hacen posible cada evento y acceden directamente a una comunidad
+                        de desarrolladores y especialistas en Python.
+                    </p>
+                </div>
+
+                <div class="sponsors reveal">
+                    <div class="sponsor sponsor-featured">
+                        <img src="assets/files/img/sponsor/logo_principal_blanco.svg" alt="Ethonik">
+                    </div>
+                    <div class="sponsor sponsor-empty"><span>Tu logo aquí</span></div>
+                    <div class="sponsor sponsor-empty"><span>Tu logo aquí</span></div>
+                </div>
+
+                <div class="reveal">
+                    <a href="mailto:pythonuio@gmail.com?subject=Quiero%20ser%20partner%20de%20Python%20UIO" class="btn btn-outline">
+                        Conviértete en partner
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA final -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="panel final-cta reveal">
+                    <div class="panel-content">
+                        <p class="eyebrow">// import comunidad</p>
+                        <h2 class="section-title">
+                            ¿Listo para hacer <span class="gradient-text">commit</span><br>a tu crecimiento profesional?
+                        </h2>
+                        <p class="lead">
+                            Únete al canal para descubrir ofertas laborales, networking directo con reclutadores,
+                            eventos exclusivos y mucho código.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="https://t.me/pythonUIO" target="_blank" rel="noopener" class="btn btn-primary">
+                                Unirme al canal de Telegram <span class="arrow">→</span>
+                            </a>
+                            <a href="mailto:pythonuio@gmail.com" class="btn btn-ghost">pythonuio@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="panel-aside">
+                        <div class="qr-card">
+                            <img src="assets/files/img/QR_telegram_web.png" alt="Código QR para unirse al canal de Telegram de Python UIO" class="qr-img" width="882" height="1130" loading="lazy">
+                            <p class="qr-label">Scanner.init() 📱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a href="#hero" class="brand">
+                <span class="brand-mark">🐍</span>
+                <span class="brand-text">python<span class="brand-accent">_</span>uio</span>
+            </a>
+            <nav class="footer-links" aria-label="Enlaces del pie de página">
+                <a href="https://t.me/pythonUIO" target="_blank" rel="noopener">Telegram</a>
+                <a href="https://forms.gle/XaKXWGxTpWt2G3pf8" target="_blank" rel="noopener">Postular charla</a>
+                <a href="mailto:pythonuio@gmail.com">Contacto</a>
+            </nav>
+            <p class="footer-note">Hecho con Python y café en Quito 🇪🇨</p>
+        </div>
+    </footer>
+
+    <!-- Ruta al script -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

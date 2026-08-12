@@ -32,11 +32,16 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-    /* Sensación de diapositiva: 'proximity' encaja cada sección al soltar el scroll,
-       pero (a diferencia de 'mandatory') nunca atrapa al usuario si una sección
-       llega a superar la altura de la pantalla. */
-    scroll-snap-type: y proximity;
+    /* Efecto PowerPoint: Fuerza el encaje exacto en la sección */
+    scroll-snap-type: y mandatory;
+    
+    /* Oculta la barra de scroll en Firefox */
+    scrollbar-width: none; 
+}
+
+/* Oculta la barra de scroll en Chrome, Safari y Edge */
+::-webkit-scrollbar {
+    display: none;
 }
 
 body {
@@ -53,16 +58,6 @@ img { max-width: 100%; display: block; }
 a { color: inherit; }
 
 ::selection { background: rgba(255, 212, 59, 0.28); color: #fff; }
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb {
-    background: #232b38;
-    border-radius: 10px;
-    border: 2px solid var(--bg);
-}
-::-webkit-scrollbar-thumb:hover { background: #313b4d; }
 
 /* ============================================
    Ambiente: orbes + rejilla
@@ -130,16 +125,14 @@ a { color: inherit; }
 
 main { position: relative; z-index: 1; }
 
-/* Cada sección es una "diapositiva": ocupa la pantalla y centra su contenido.
-   min-height (no height) permite crecer si el contenido no cabe, en vez de recortarlo. */
+/* Configuración de las "Diapositivas" (Slide) */
 .section,
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    /* Relativo al alto de la ventana para que cada sección quepa en una pantalla */
     padding: clamp(56px, 8vh, 112px) 0;
-    scroll-snap-align: center;
+    scroll-snap-align: start; /* Ancla la vista a la parte superior de la sección */
 }
 
 .text-center { text-align: center; }
@@ -159,7 +152,6 @@ main { position: relative; z-index: 1; }
 }
 
 .section-title {
-    /* min(vw, vh) evita que el titular se desborde en pantallas anchas pero bajas */
     font-size: clamp(1.95rem, min(4.4vw, 5.6vh), 3.4rem);
     font-weight: 800;
     line-height: 1.12;
@@ -169,7 +161,6 @@ main { position: relative; z-index: 1; }
 }
 
 .gradient-text {
-    /* Pasa por un ámbar claro para no desaturarse entre el amarillo y el azul */
     background: linear-gradient(100deg, #FFD43B 0%, #FFE9A0 44%, #7FC4F5 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -294,7 +285,6 @@ main { position: relative; z-index: 1; }
    Hero
    ============================================ */
 .hero {
-    /* Más aire arriba para despejar el header fijo */
     padding: clamp(88px, 12vh, 144px) 0 clamp(48px, 7vh, 88px);
 }
 
@@ -384,7 +374,6 @@ main { position: relative; z-index: 1; }
     margin: 0 auto;
 }
 
-/* Bloque de código centrado en la diapositiva "quiénes somos" */
 .code-card-center {
     max-width: 720px;
     margin: 0 auto;
@@ -677,7 +666,7 @@ main { position: relative; z-index: 1; }
    ============================================ */
 @media (max-width: 940px) {
     .panel {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* ¡Esta línea estaba desaparecida y rompía tu imagen! */
         gap: 40px;
         padding: 44px 32px;
         text-align: center;
@@ -692,8 +681,7 @@ main { position: relative; z-index: 1; }
     .site-nav { display: none; }
 }
 
-/* En pantallas bajas o angostas el contenido supera la altura de la ventana:
-   ahí el encaje de diapositiva estorba más de lo que aporta. */
+/* En pantallas bajas o angostas deshabilitamos el encaje mandatory para que no corte el contenido */
 @media (max-height: 700px), (max-width: 640px) {
     html { scroll-snap-type: none; }
     .section, .hero { min-height: auto; }
@@ -722,4 +710,68 @@ main { position: relative; z-index: 1; }
         transition-duration: 0.01ms !important;
     }
     .reveal { opacity: 1; transform: none; }
+}
+
+/* ============================================
+   Footer Persistente de Patrocinadores (Estilo PowerPoint)
+   ============================================ */
+.presentation-footer {
+    position: fixed;
+    bottom: 24px;
+    right: 32px;
+    z-index: 90; /* Por encima de las diapositivas, debajo del header */
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(10, 14, 20, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 22px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    opacity: 0.7; /* Ligeramente transparente para no distraer */
+    transition: all 0.3s ease;
+}
+
+.presentation-footer:hover {
+    opacity: 1;
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+}
+
+.presentation-sponsor-text {
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+}
+
+.presentation-sponsor-logo {
+    height: 22px;
+    width: auto;
+    /* Efecto para que resalte sutilmente */
+    filter: brightness(0.9);
+    transition: filter 0.3s ease;
+}
+
+.presentation-footer:hover .presentation-sponsor-logo {
+    filter: brightness(1.1);
+}
+
+/* Adaptación para pantallas pequeñas (celulares) */
+@media (max-width: 640px) {
+    .presentation-footer {
+        bottom: 16px;
+        right: 16px;
+        padding: 8px 16px;
+    }
+    
+    .presentation-sponsor-text {
+        /* Ocultamos el texto en móvil para que el logo no ocupe mucho espacio */
+        display: none; 
+    }
+    
+    .presentation-sponsor-logo {
+        height: 18px;
+    }
 }

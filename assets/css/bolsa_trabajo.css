@@ -110,6 +110,17 @@ html.page-doc { scroll-snap-type: none; }
     margin-bottom: 14px;
 }
 
+/* Contexto académico bajo el título de la vacante */
+.job-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+}
+.job-subtitle strong {
+    color: var(--blue-bright);
+    font-weight: 600;
+}
+
 .job-tags {
     display: flex;
     flex-wrap: wrap;
@@ -181,6 +192,16 @@ html.page-doc { scroll-snap-type: none; }
     font-weight: 700;
 }
 .job-list strong { color: var(--text); font-weight: 600; }
+
+/* Listas largas (competencias) a dos columnas cuando hay espacio.
+   `columns: 300px 2` = columnas de ~300px con un tope de 2, así el
+   navegador cae a una sola columna en pantallas angostas sin media query.
+   Funciona porque la viñeta va en absoluto, no en flex. */
+.job-list.is-two-col {
+    columns: 300px 2;
+    column-gap: 30px;
+}
+.job-list.is-two-col li { break-inside: avoid; }
 
 /* Mismo criterio para la check-list del panel final de esta página */
 .page-doc .check-list li {

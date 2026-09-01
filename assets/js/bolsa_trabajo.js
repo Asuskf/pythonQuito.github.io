@@ -7,9 +7,9 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 
 // 1. Efecto máquina de escribir en la terminal del hero
 const PHRASES = [
-    "vacantes = buscar(rol='docente', ciudad='Quito')",
-    "materias = ['Programacion I', 'Programacion II']",
-    "matematicas.ensenar(con=Python)"
+    "carrera = 'Tec. Superior de Desarrollo de Software'",
+    "semestre_2.docente(asignatura='Programacion 2')",
+    "semestre_1.docente(asignatura='Matematicas')"
 ];
 
 const typewriterElement = document.getElementById("typewriter");

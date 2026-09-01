@@ -1,0 +1,381 @@
+/* ============================================
+   Python UIO — Bolsa de trabajo
+   Hoja complementaria: reutiliza los tokens de style.css
+   (--bg #0A0E14 / --yellow #FFD43B / --blue #4B8BBE / --green #7EE787)
+   sin modificar ninguna regla del sitio principal.
+   ============================================ */
+
+/* Esta página es un documento largo, no una presentación:
+   se desactiva el scroll-snap heredado. */
+html.page-doc { scroll-snap-type: none; }
+.page-doc .section,
+.page-doc .hero {
+    min-height: auto;
+    scroll-snap-align: none;
+}
+
+/* El header es fijo: los anclajes no deben quedar debajo de él */
+.page-doc [id] { scroll-margin-top: 96px; }
+
+/* ============================================
+   Hero
+   ============================================ */
+.hero-compact { padding: clamp(112px, 15vh, 168px) 0 clamp(30px, 5vh, 56px); }
+.hero-compact .hero-title { font-size: clamp(2.1rem, min(5.6vw, 6.4vh), 3.9rem); }
+
+.badge-yellow {
+    border-color: rgba(255, 212, 59, 0.3);
+    color: var(--yellow);
+    background: rgba(255, 212, 59, 0.06);
+}
+.badge-yellow .badge-dot {
+    background: var(--yellow);
+    box-shadow: 0 0 10px var(--yellow);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-code);
+    font-size: 0.84rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    margin-bottom: 22px;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+.back-link:hover { color: var(--yellow); gap: 12px; }
+
+/* ============================================
+   Tarjetas de vacante
+   ============================================ */
+.jobs {
+    display: grid;
+    gap: clamp(22px, 3.4vh, 34px);
+}
+
+.job {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: clamp(28px, 4vw, 52px);
+    padding: clamp(28px, 4vh, 46px);
+    background: linear-gradient(150deg, var(--bg-elev), rgba(10, 14, 20, 0.72));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.job::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--yellow), var(--blue), transparent);
+}
+.job::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 100% 0%, rgba(75, 139, 190, 0.14), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+.job:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-4px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+}
+.job:hover::after { opacity: 1; }
+
+.job-main,
+.job-aside { position: relative; z-index: 1; }
+
+.job-code {
+    font-family: var(--font-code);
+    font-size: 0.82rem;
+    color: var(--blue-bright);
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+}
+
+.job-title {
+    font-size: clamp(1.5rem, 2.7vw, 2.05rem);
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: -0.025em;
+    color: #fff;
+    margin-bottom: 14px;
+}
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin-bottom: 20px;
+}
+.job-tags li {
+    font-family: var(--font-code);
+    font-size: 0.76rem;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+}
+.job-tags li.tag-hot {
+    background: rgba(255, 212, 59, 0.11);
+    border-color: rgba(255, 212, 59, 0.3);
+    color: var(--yellow);
+}
+.job-tags li.tag-cool {
+    background: rgba(75, 139, 190, 0.13);
+    border-color: rgba(75, 139, 190, 0.3);
+    color: var(--blue-bright);
+}
+
+.job-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-dim);
+    max-width: 60ch;
+    margin-bottom: 24px;
+}
+.job-desc strong { color: var(--text); font-weight: 600; }
+
+.job-block { margin-bottom: 22px; }
+.job-block h3 {
+    font-family: var(--font-code);
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+}
+.job-block h3::before { content: "// "; color: var(--blue-bright); }
+
+/* Viñeta posicionada en absoluto (no flex): así el texto en negrita o
+   en cursiva dentro del <li> fluye como una sola línea continua. */
+.job-list { list-style: none; }
+.job-list li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+    margin-bottom: 9px;
+}
+.job-list li::before {
+    content: "\25B8";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--blue);
+}
+.job-list.is-check li::before {
+    content: "\2713";
+    color: var(--green);
+    font-weight: 700;
+}
+.job-list strong { color: var(--text); font-weight: 600; }
+
+/* Mismo criterio para la check-list del panel final de esta página */
+.page-doc .check-list li {
+    display: block;
+    position: relative;
+    padding-left: 22px;
+}
+.page-doc .check-list li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.page-doc .check-list strong { color: var(--text); font-weight: 600; }
+
+/* Caja destacada: el "plus" de cada perfil */
+.job-highlight {
+    padding: 18px 22px;
+    border-radius: var(--radius);
+    background: linear-gradient(140deg, rgba(255, 212, 59, 0.1), rgba(75, 139, 190, 0.06));
+    border: 1px solid rgba(255, 212, 59, 0.26);
+    margin-bottom: 8px;
+}
+.job-highlight h3 {
+    font-family: var(--font-main);
+    font-size: 0.99rem;
+    font-weight: 700;
+    color: var(--yellow);
+    letter-spacing: -0.01em;
+    margin-bottom: 7px;
+}
+.job-highlight h3::before { content: none; }
+.job-highlight p {
+    font-size: 0.93rem;
+    line-height: 1.65;
+    color: var(--text-dim);
+    margin: 0;
+}
+
+/* ============================================
+   Columna lateral: postulación
+   ============================================ */
+.job-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-content: start;
+}
+
+.apply-box {
+    padding: 24px 22px;
+    border-radius: var(--radius);
+    background: rgba(3, 6, 12, 0.62);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+.apply-kicker {
+    font-family: var(--font-code);
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+.apply-box .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+.apply-mail {
+    display: block;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border-strong);
+    font-family: var(--font-code);
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.apply-mail strong {
+    display: block;
+    color: var(--yellow);
+    font-weight: 500;
+    margin-top: 5px;
+    word-break: break-all;
+}
+.apply-mail:hover strong { color: #FFE9A0; }
+
+.copy-btn {
+    margin-top: 12px;
+    width: 100%;
+    font-family: var(--font-code);
+    font-size: 0.78rem;
+    padding: 9px 14px;
+    border-radius: 100px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+.copy-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+.copy-btn.copied { border-color: var(--green); color: var(--green); }
+
+.job-facts {
+    list-style: none;
+    padding: 18px 22px;
+    border-radius: var(--radius);
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+.job-facts li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    font-size: 0.85rem;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+}
+.job-facts li:last-child { border-bottom: none; }
+.fact-key {
+    font-family: var(--font-code);
+    color: #6E7A8C;
+    flex-shrink: 0;
+}
+.fact-val {
+    color: var(--text);
+    text-align: right;
+    font-weight: 500;
+}
+
+/* ============================================
+   Pasos para postular
+   ============================================ */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: clamp(14px, 2.2vh, 22px);
+}
+.step {
+    padding: 26px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+.step:hover {
+    border-color: var(--border-strong);
+    background: var(--surface-hover);
+    transform: translateY(-4px);
+}
+.step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px; height: 38px;
+    border-radius: 11px;
+    background: rgba(255, 212, 59, 0.12);
+    border: 1px solid rgba(255, 212, 59, 0.26);
+    font-family: var(--font-code);
+    font-weight: 600;
+    color: var(--yellow);
+    margin-bottom: 15px;
+}
+.step h3 {
+    font-size: 1.04rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+.step p {
+    font-size: 0.93rem;
+    color: var(--text-dim);
+    margin: 0;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 940px) {
+    .job {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .job-desc { max-width: none; }
+}
+
+@media (max-width: 640px) {
+    .job { padding: 26px 20px; }
+    .job-title { font-size: 1.42rem; }
+    .apply-box { padding: 20px 16px; }
+    .job-facts { padding: 14px 18px; }
+    .job-facts li { flex-direction: column; gap: 2px; }
+    .fact-val { text-align: left; }
+}
